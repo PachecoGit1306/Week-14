@@ -1,0 +1,24 @@
+x = 0:0.01:10;
+y = 5.*x.^2 .* exp(-0.2.*x) .* sin(x);
+
+dx = 0.01;
+dy = zeros(size(y));
+dy(2:end-1) = (y(3:end) - y(1:end-2)) ./ (2*dx);
+dy(1) = (y(2) - y(1)) / dx;
+dy(end) = (y(end) - y(end-1)) / dx;
+
+figure;
+plot(x, y);
+grid on;
+xlabel('x');
+ylabel('f(x)');
+title('Original Function');
+xlim([0 10]);
+
+figure;
+plot(x, dy);
+grid on;
+xlabel('x');
+ylabel('df/dx');
+title('Numerical Derivative');
+xlim([0 10]);
