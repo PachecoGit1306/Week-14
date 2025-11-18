@@ -1,0 +1,22 @@
+fprintf('Enter the coefficients for the cubic function f(x) = ax^3 + bx^2 + cx + d\n');
+a = input('Enter coefficient a: ');
+b = input('Enter coefficient b: ');
+c = input('Enter coefficient c: ');
+d = input('Enter coefficient d: ');
+yo = input('Enter the integration constant (yo): ');
+
+p = [a b c d];
+
+p_deriv = polyder(p);
+
+p_integ = polyint(p, yo);
+
+fprintf('\nOriginal function:\n');
+fprintf('f(x) = %.2fx^3 + %.2fx^2 + %.2fx + %.2f\n', a, b, c, d);
+
+fprintf('\nDerivative:\n');
+fprintf('f''(x) = %.2fx^2 + %.2fx + %.2f\n', p_deriv(1), p_deriv(2), p_deriv(3));
+
+fprintf('\nIntegral:\n');
+fprintf('∫f(x)dx = %.2fx^4 + %.2fx^3 + %.2fx^2 + %.2fx + %.2f\n', ...
+    p_integ(1), p_integ(2), p_integ(3), p_integ(4), p_integ(5));
