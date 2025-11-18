@@ -1,0 +1,18 @@
+k = 0.1;
+T0 = 20;
+t = 0:0.1:50;
+Ti = 0:10:100;
+
+figure;
+hold on;
+
+for T_initial = Ti
+    T = T0 + (T_initial - T0) * exp(-k * t);
+    plot(t, T);
+end
+
+xlabel('Time (s)');
+ylabel('Temperature (°C)');
+title('Temperature vs Time for Different Initial Temperatures');
+grid on;
+legend(string(Ti));
