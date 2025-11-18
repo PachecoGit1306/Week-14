@@ -1,0 +1,23 @@
+Tb = 170;
+T0 = 70;
+
+T = @(t) Tb + (T0 - Tb) * exp(-t/10);
+
+t1 = T(10);
+t2 = T(20);
+t3 = T(40);
+
+fprintf('T(10) = %.2f\n', t1);
+fprintf('T(20) = %.2f\n', t2);
+fprintf('T(40) = %.2f\n', t3);
+
+t_reach = -10 * log((160 - Tb) / (T0 - Tb));
+fprintf('Time to reach 160F = %.1f\n', t_reach);
+
+t = 0:0.1:40;
+plot(t, T(t));
+ylim([0 180]);
+xlabel('Time (s)');
+ylabel('Temperature');
+title('Temperature vs Time');
+grid on;
