@@ -1,0 +1,18 @@
+m = 1000;
+c = 50;
+F = [20000 40000 60000 80000];
+t = 0:0.01:10;
+
+figure;
+hold on;
+
+for f = F
+    v = (f/c) * (1 - exp(-(c/m)*t));
+    plot(t, v);
+end
+
+xlabel('Time (s)');
+ylabel('Velocity (m/s)');
+title('Rocket Velocity for Different Thrust Forces');
+grid on;
+legend(string(F));
