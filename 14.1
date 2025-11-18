@@ -1,0 +1,20 @@
+t = 0:10;
+x = [0 1 2 4 7 11 14 16 17 18 18];
+
+v = diff(x) ./ diff(t);
+t_v = t(1:end-1) + 0.5;
+
+figure;
+plot(t, x, 'o-');
+xlabel('Time (s)');
+ylabel('Position (m)');
+title('Position vs Time');
+
+figure;
+plot(t_v, v, 'o-');
+xlabel('Time (s)');
+ylabel('Velocity (m/s)');
+title('Velocity vs Time');
+
+max_velocity = max(v)
+average_velocity = (x(end) - x(1)) / (t(end) - t(1))
